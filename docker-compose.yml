@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  application:
+    image: debian
+    volumes:
+      - ./:/var/www/app
+  node:
+    image: dung13890/react-native-env
+    restart: always
+    environment:
+      - NODE_ENV=development
+    volumes_from:
+      - application
+    tty: true
