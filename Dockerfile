@@ -6,7 +6,8 @@ ENV TERM xterm
 
 RUN npm install -g \
     react-native-cli \
-    bower
+    bower \
+    eslint
 
 ADD https://dl.yarnpkg.com/debian/pubkey.gpg /tmp/yarn-pubkey.gpg
 RUN apt-key add /tmp/yarn-pubkey.gpg && rm /tmp/yarn-pubkey.gpg
