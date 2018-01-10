@@ -4,6 +4,10 @@ MAINTAINER Dao Anh Dung <dung13890@gmail.com>
 
 ENV TERM xterm
 
+# Install Java
+RUN apt-get update -q && \
+    apt-get install -qy --no-install-recommends python-dev default-jdk
+
 # Install Android SDK
 
 ## Set correct environment variables.
@@ -33,11 +37,6 @@ RUN apt-key add /tmp/yarn-pubkey.gpg && rm /tmp/yarn-pubkey.gpg
 RUN echo 'deb http://dl.yarnpkg.com/debian/ stable main' > /etc/apt/sources.list.d/yarn.list
 
 RUN apt-get update && apt-get install yarn
-
-# Install Java
-RUN apt-get update -q && \
-    apt-get install -qy --no-install-recommends python-dev default-jdk
-
 
 ## Clean up when done
 RUN apt-get clean && \
