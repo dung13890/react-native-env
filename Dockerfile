@@ -21,6 +21,11 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 ENV ANDROID_SDK_FILE android-sdk_r24.4.1-linux.tgz
 ENV ANDROID_SDK_URL http://dl.google.com/android/$ANDROID_SDK_FILE
 
+# Install 32bit support for Android SDK
+RUN dpkg --add-architecture i386 && \
+    apt-get update -q && \
+    apt-get install -qy --no-install-recommends libstdc++6:i386 libgcc1:i386 zlib1g:i386 libncurses5:i386
+
 ## Install SDK
 ENV ANDROID_HOME /usr/local/android-sdk-linux
 RUN cd /usr/local && \
