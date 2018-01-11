@@ -4,6 +4,9 @@ MAINTAINER Dao Anh Dung <dung13890@gmail.com>
 
 ENV TERM xterm
 
+# Setup environment variables
+ENV PATH $PATH:node_modules/.bin
+
 # Install Java
 RUN apt-get update -q && \
     apt-get install -qy --no-install-recommends python-dev default-jdk
