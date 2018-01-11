@@ -8,8 +8,12 @@ ENV TERM xterm
 ENV PATH $PATH:node_modules/.bin
 
 # Install Java
+RUN echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
+
 RUN apt-get update -q && \
-    apt-get install -qy --no-install-recommends python-dev default-jdk
+    apt-get install -qy --no-install-recommends -t jessie-backports openjdk-8-jdk
+
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 
 # Install Android SDK
 
